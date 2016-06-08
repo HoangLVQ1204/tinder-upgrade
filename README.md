@@ -3,6 +3,12 @@ Ionic App Base
 
 A starting project for Ionic that optionally supports using custom SCSS.
 
+## Upgrading this project to Firebase 3.0
+
+Follow these migration guides:
+- [From AngularFire 1.x.x to 2.x.x](https://github.com/firebase/angularfire/blob/master/docs/migration/1XX-to-2XX.md)
+- [From Firebase 2.x to 3.x](https://firebase.google.com/support/guides/firebase-web)
+
 ## Using this project
 
 We recommend using the [Ionic CLI](https://github.com/driftyco/ionic-cli) to create new Ionic projects that are based on this project but use a ready-made starter template.
