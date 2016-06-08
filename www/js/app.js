@@ -22,7 +22,7 @@ var app = angular.module('starter', ['ionic', 'firebase', 'ionic.contrib.ui.tind
   });
 })
 
-.constant('FURL', 'https://lovermobile.firebaseio.com/')
+.constant('FURL', 'https://task-easy.firebaseio.com/')
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
