@@ -2,8 +2,9 @@
 
 app.factory('Auth', function(FURL, $firebaseAuth, $firebaseObject, $firebaseArray, $state, $http) {
 
-	var ref = new Firebase(FURL);
-	var auth = $firebaseAuth(ref);
+	var ref = firebase.database().ref();
+	var auth = $firebaseAuth();
+	console.log('auth', auth);
 
 	var Auth = {
 
