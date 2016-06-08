@@ -2,7 +2,7 @@
 
 app.factory('Like', function(FURL, $firebaseArray) {
 
-	var ref = new Firebase(FURL);
+	var ref = firebase.database().ref();
 
 	var Like = {
 

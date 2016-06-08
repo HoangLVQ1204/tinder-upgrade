@@ -2,7 +2,7 @@
 
 app.factory('Match', function(FURL, $firebaseArray, $ionicPopup) {
 
-	var ref = new Firebase(FURL);
+	var ref = firebase.database().ref();
 
 	var Match = {
 
