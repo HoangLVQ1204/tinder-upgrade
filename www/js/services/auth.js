@@ -27,24 +27,24 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebaseObject, $firebaseArra
 		},
 
 		login: function() {
-			return auth.$authWithOAuthPopup('facebook', {
-				remember: "sessionOnly",
-				scope: "public_profile, email, user_location, user_birthday, user_photos, user_about_me"
-			})
-			.then(function(authFacebook) {
-				console.log(authFacebook);
-				var user = Auth.getProfile(authFacebook.uid).$loaded();
+			// Create facebook auth provider and add scope
+			var provider = new firebase.auth.FacebookAuthProvider()
+			provider.addScope("public_profile, email, user_location, user_birthday, user_photos, user_about_me")
+
+			// Sign in using facebook provider
+			return auth.$signInWithPopup(provider).then(function(authFacebook) {
+				var user = Auth.getProfile(authFacebook.user.uid).$loaded();
 
 				user.then(function(profile) {
 					if (profile.name == undefined) {
-						Auth.createProfile(authFacebook.uid, authFacebook.facebook);
+						Auth.createProfile(authFacebook.user.uid, authFacebook.user);
 					}
 				});
-			});
+			})
 		},
 
 		logout: function() {
-			return auth.$unauth();
+			return auth.$signOut();
 		},
 
 		getAbout: function(access_token) {
@@ -60,7 +60,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebaseObject, $firebaseArra
 		},
 
 		requireAuth: function() {
-			return auth.$requireAuth();
+			return auth.$requireSignIn();
 		},
 
 		getProfiles: function() {
@@ -73,7 +73,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebaseObject, $firebaseArra
 
 	};
 
-	auth.$onAuth(function(authData) {
+	auth.$onAuthStateChanged(function(authData) {
 		if(authData) {
 			console.log('Logged in!');
 		} else {
