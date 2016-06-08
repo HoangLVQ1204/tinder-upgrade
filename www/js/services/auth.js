@@ -4,6 +4,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebaseObject, $firebaseArra
 
 	var ref = firebase.database().ref();
 	var auth = $firebaseAuth();
+	var accessToken = '';
 	console.log('auth', auth);
 
 	var Auth = {
@@ -33,6 +34,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebaseObject, $firebaseArra
 
 			// Sign in using facebook provider
 			return auth.$signInWithPopup(provider).then(function(authFacebook) {
+				accessToken = authFacebook.credential.accessToken;
 				var user = Auth.getProfile(authFacebook.user.uid).$loaded();
 
 				user.then(function(profile) {
@@ -69,7 +71,11 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebaseObject, $firebaseArra
 
 		getProfilesByAge: function(age) {
 			return $firebaseArray(ref.child('profiles').orderByChild('age').startAt(18).endAt(age));
-		} 				
+		},
+
+		getAccessToken: function() {
+			return accessToken;
+		} 				 				
 
 	};
 
