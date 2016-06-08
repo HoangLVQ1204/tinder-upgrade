@@ -1,0 +1,26 @@
+<ion-view view-title="Profile">
+	<ion-content>
+		
+		<div ng-if="prof.currentUser">
+			
+			<span ng-repeat="image in prof.images | limitTo:4">
+				<img ng-src="{{image.source}}" width="150px" height="150px">
+			</span>
+
+			<div class="card">
+				<div class="item item-avatar">
+					<img src="{{prof.currentUser.avatar}}">
+					<h2>{{prof.currentUser.name}}, {{prof.currentUser.age}}</h2>
+					<p>{{prof.currentUser.location}}</p>
+				</div>
+
+				<div class="item item-divider">
+					<h2>About</h2>
+					<ion-item class="item-text-wrap">{{prof.about}}</ion-item>
+				</item>
+			</div>
+
+		</div>
+
+	</ion-content>
+</ion-view>

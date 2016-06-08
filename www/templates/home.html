@@ -1,0 +1,35 @@
+<ion-view view-title="Home">
+	<ion-content class="padding">
+
+		<div class="row">
+			<div class="col col-40">
+				<button class="button button-block button-assertive icon ion-close" ng-click="home.nope(home.currentIndex)"> Nope</button>
+			</div>
+			<div class="col col-20">
+				<button class="button button-block button-positive icon ion-information" ng-click="home.openModal()"></button>
+			</div>
+			<div class="col col-40">
+				<button class="button button-block button-balanced icon ion-heart" ng-click="home.like(home.currentIndex, home.currentCardUid)"> Like</button>
+			</div>
+		</div>
+
+		<td-cards>
+			<td-card id="td-card" class="card-{{$index}}"
+					ng-repeat="profile in home.profiles"
+					on-swipe-left="home.nope($index)"
+					on-swipe-right="home.like($index, profile.$id)">
+
+				<div class="image">
+					<div class="no-text">NOPE</div>
+					<img ng-src="{{profile.avatar}}">
+					<div class="yes-text">LIKE</div>
+				</div>
+				<div class="item">
+					<h2>{{profile.name}}, {{profile.age}}</h2>
+				</div>
+				
+			</td-card>
+		</td-cards>
+
+	</ion-content>
+</ion-view>

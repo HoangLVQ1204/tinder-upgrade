@@ -1,0 +1,16 @@
+<ion-view view-title="Matches">
+	<ion-content>
+
+		<ion-list can-swipe="true">
+			<ion-item class="item item-avatar" ng-repeat="item in matc.list">
+				<img ng-src="{{item.avatar}}">
+				<h2>{{item.name}}, {{item.age}}</h2>
+				<p>{{item.email}}</p>
+				<p><i class="ion-location"></i> {{item.location}}</p>
+
+				<ion-option-button class="button-assertive" ng-click="matc.unmatch(item.$id)">Unmatch</ion-option-button>
+			</ion-item>
+		</ion-list>
+
+	</ion-content>
+</ion-view>

@@ -1,0 +1,106 @@
+/* Empty. Add your own CSS if you like */
+
+.item-menu.item.item-complex .item-content {
+	background-color: #444444;
+	color: #FFF;
+	font-weight: 500;
+	padding-bottom: 30px;
+}
+
+.item-menu.item.item-complex {
+	border: none !important;
+}
+
+.menu.menu-left {
+	width: 100%;
+	background-color: #444444;
+}
+
+.icon-menu.icon {
+	font-size: 25px;
+	margin-right: 10px;
+	border: 2px solid;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 50%;
+}
+
+.landing {
+	background: url(../img/home.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.facebook {
+	max-width: 200px;
+	margin: 0 auto;
+}
+
+.facebook-button {
+	position: absolute;
+	top: 500px;
+}
+
+.big {
+	font-size: 20px;
+}
+
+td-cards {
+  display: block;
+}
+
+td-card {
+  position: absolute;
+  left: 50%;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  margin-left: -150px;
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid #999;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 6px;
+}
+
+td-card .image {
+  width: 100%;
+}
+
+td-card img {
+ 	height: 295px;
+ 	width: 100%;
+  border-radius: 6px;
+}
+
+.yes-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 30px;
+  color: rgb(111, 250, 111);
+  opacity: 0;
+}
+.no-text {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: rgb(255, 115, 115);
+  opacity: 0;
+}
+
+.fade {
+  -webkit-transition: 0.2s opacity linear;
+  transition: 0.2s opacity linear;
+  opacity: 0;
+}
+
+.spinner svg {
+  width: 28px;
+  height: 28px;
+  stroke: #fff;
+  fill: #fff;
+}
