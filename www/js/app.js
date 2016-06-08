@@ -67,7 +67,7 @@ var app = angular.module('starter', ['ionic', 'firebase', 'ionic.contrib.ui.tind
           about: function(Auth) {
             return Auth.requireAuth()
               .then(function(auth) {
-                return Auth.getAbout(auth.facebook.accessToken);
+                return Auth.getAbout(Auth.getAccessToken());
               })
               .then(function(object) {
                 return object.data.bio;
@@ -77,7 +77,7 @@ var app = angular.module('starter', ['ionic', 'firebase', 'ionic.contrib.ui.tind
           images: function(Auth) {
             return Auth.requireAuth()
               .then(function(auth) {
-                return Auth.getImages(auth.facebook.accessToken);
+                return Auth.getImages(Auth.getAccessToken());
               })
               .then(function(object) {
                 return object.data.data;
