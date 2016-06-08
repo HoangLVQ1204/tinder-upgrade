@@ -4,7 +4,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebaseObject, $firebaseArra
 
 	var ref = firebase.database().ref();
 	var auth = $firebaseAuth();
-	var accessToken = '';
+	var accessToken = localStorage.getItem('accessToken');
 	console.log('auth', auth);
 
 	var Auth = {
@@ -35,6 +35,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebaseObject, $firebaseArra
 			// Sign in using facebook provider
 			return auth.$signInWithPopup(provider).then(function(authFacebook) {
 				accessToken = authFacebook.credential.accessToken;
+				localStorage.setItem('accessToken', accessToken);
 				var user = Auth.getProfile(authFacebook.user.uid).$loaded();
 
 				user.then(function(profile) {
